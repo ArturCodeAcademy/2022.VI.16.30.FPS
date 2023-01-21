@@ -8,9 +8,11 @@ public class CharacterGravity : MonoBehaviour
     public UnityEventOnGetGrounded OnGetGrounded;
 
     [SerializeField] private float _gravityScale = 1;
+    [SerializeField] private float _groundedTimer = 0.2f;
 
     private CharacterController _characterController;
     private float _verticalVelocity = 0;
+    private float _timer = 0;
 
     private void Awake()
     {
@@ -25,12 +27,16 @@ public class CharacterGravity : MonoBehaviour
         if (collisionFlags == CollisionFlags.CollidedBelow)
         {
             IsGrounded = true;
+            _timer = _groundedTimer;
             OnGetGrounded.Invoke(new GroundedEventArgs() { VerticalVelocity = _verticalVelocity });
             _verticalVelocity = 0;
         }
         else
         {
-            IsGrounded = false;
+            if (_timer > 0)
+                _timer -= Time.deltaTime;
+            else
+                IsGrounded = false;
         }
     }
 

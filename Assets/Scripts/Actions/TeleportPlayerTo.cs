@@ -6,7 +6,11 @@ public class TeleportPlayerTo : MonoBehaviour
 
     public void Teleport()
     {
-        Player.Instance.transform.position = _teleportPosition;
+        Transform player = Player.Instance.transform;
+        CharacterController cc = player.GetComponent<CharacterController>();
+        cc.enabled = false;
+        player.position = _teleportPosition;
+        cc.enabled = true;
     }
 
 #if UNITY_EDITOR

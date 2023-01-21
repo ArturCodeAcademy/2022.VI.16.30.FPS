@@ -12,6 +12,7 @@ public class Scanner : MonoBehaviour
 
     [SerializeField, Min(0)] private float _viewDistance;
     [SerializeField, Range(0, 360)] private float _viewAngle;
+    [SerializeField] private Vector3 _centerOffset;
     [SerializeField] private CharacterType.Type _targetsType;
 
     private HashSet<ScannerTarget> _targets;
@@ -66,7 +67,8 @@ public class Scanner : MonoBehaviour
 
     private void CheckTarget(ScannerTarget target)
     {
-        if (Vector3.Distance(target.Target.position, transform.position) > _viewDistance)
+        Vector3 targetCenter = target.Target.position + _centerOffset;
+        if (Vector3.Distance(targetCenter, transform.position) > _viewDistance)
         {
             if (target.IsVisible)
             { 
@@ -79,13 +81,14 @@ public class Scanner : MonoBehaviour
             return;
         }
 
-        float angle = Vector3.Angle(transform.forward, target.Target.position - transform.position);
+        float angle = Vector3.Angle(transform.forward, targetCenter - transform.position);
 
         if (angle <= _viewAngle / 2)
         {
-            Vector3 direction = target.Target.position - transform.position;
+            Vector3 direction = targetCenter - transform.position;
             if (Physics.Raycast(transform.position, direction, out RaycastHit hit, _viewDistance))
             {
+                Debug.DrawRay(transform.position, direction, Color.red, 1);
                 if (!target.IsVisible && hit.transform == target.Target.transform)
                 {
                     target.IsVisible = true;
