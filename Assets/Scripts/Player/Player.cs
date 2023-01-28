@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
+    [field: SerializeField] public Camera Camera;
+
     private void Awake()
     {
         if (Instance != null)

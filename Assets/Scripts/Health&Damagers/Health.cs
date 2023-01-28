@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IHitable
 {
     public float MaxHealth => _maxHealth;
     public float CurrentHealth => _currentHealth;
