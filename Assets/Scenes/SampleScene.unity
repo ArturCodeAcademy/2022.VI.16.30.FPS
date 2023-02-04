@@ -7867,6 +7867,9 @@ MonoBehaviour:
   _penetratingPower: 0
   _impulsePower: 0
   _magazineVolume: 0
+  _hitEffectPrefab: {fileID: 0}
+  _shootEffectPrefab: {fileID: 0}
+  _holePrefab: {fileID: 0}
 --- !u!1 &993288143
 GameObject:
   m_ObjectHideFlags: 0
@@ -13932,13 +13935,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _muzzle: {fileID: 852815191}
-  _normalSpread: 0
+  _normalSpread: 20.2
   _aimSpread: 0
   _fireRatePerSecond: 0
   _damage: 0
   _penetratingPower: 20
-  _impulsePower: 50
+  _impulsePower: 0
   _magazineVolume: 0
+  _hitEffectPrefab: {fileID: 5569501288523769071, guid: 26f3511f66f8c3545886cf74501ea4ed, type: 3}
+  _shootEffectPrefab: {fileID: 3821381094220751404, guid: 6c8428b1387ccf54993a68f84c5f7e9b, type: 3}
+  _holePrefab: {fileID: 2716106478467039691, guid: 357a9d7f69ee8dd468ec70896a12a773, type: 3}
 --- !u!1001 &1442882211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14166,6 +14172,9 @@ MonoBehaviour:
   _penetratingPower: 0
   _impulsePower: 0
   _magazineVolume: 0
+  _hitEffectPrefab: {fileID: 0}
+  _shootEffectPrefab: {fileID: 0}
+  _holePrefab: {fileID: 0}
 --- !u!1001 &1458080043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15759,6 +15768,9 @@ MonoBehaviour:
   _penetratingPower: 0
   _impulsePower: 0
   _magazineVolume: 0
+  _hitEffectPrefab: {fileID: 0}
+  _shootEffectPrefab: {fileID: 0}
+  _holePrefab: {fileID: 0}
 --- !u!1001 &2114429774
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,6 +27,12 @@ public class GunBase : MonoBehaviour, IGun
     [Space(10)]
     [SerializeField, Min(1)] protected int _magazineVolume;
 
+    [Header("Temp")] // TODO: Move to pools
+    [SerializeField] protected ParticleSystem _hitEffectPrefab;
+    [SerializeField] protected ParticleSystem _shootEffectPrefab;
+    [SerializeField] protected GameObject _holePrefab;
+
+
     private Transform _playerCamera;
 
     private void Start()
@@ -36,6 +42,13 @@ public class GunBase : MonoBehaviour, IGun
 
     protected void Shoot(float damage, float bulletSpread, float penetratingPower, float impulse)
     {
+        // Temp Start
+
+        ParticleSystem shootEffect = Instantiate(_shootEffectPrefab, _muzzle.position, _muzzle.rotation);
+        //Destroy(shootEffect, 10);
+
+        // Temp End
+
         IEnumerable<RaycastHit> hits = GetHits(bulletSpread);
         if (hits == null || hits.Count() == 0)
             return;
@@ -54,6 +67,15 @@ public class GunBase : MonoBehaviour, IGun
                 rigidbody.AddForce(impulse * leftPenetratingPower / penetratingPower * direction);
 
             // TODO: Add holes and effects
+            // Temp Start
+
+            GameObject hole = Instantiate(_holePrefab, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up), hit.transform);
+            Destroy(hole, 10);
+
+            ParticleSystem hitEffect = Instantiate(_hitEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+            //Destroy(hitEffect, 10);
+
+            // Temp End
 
             if (hit.transform.TryGetComponent(out BulletBarrier barrier))
             {
