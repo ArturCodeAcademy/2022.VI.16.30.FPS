@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2716106478467039690}
+  - component: {fileID: 1580701945139327737}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -32,6 +33,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1580701945139327737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716106478467039691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4431fd0b5ffee498af7e21e7145c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 2009688613, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 544495660, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 766100186, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 416020740, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 1166029332, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: -2069156152, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 1481885876, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 484114200, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: -610035553, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 2109271882, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 1167288583, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: -989988368, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 560380965, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: -1695845009, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: -1398532848, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 1410130441, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 1033839370, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: -1799539105, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 814206902, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  - {fileID: 1612872626, guid: cc537ed4de1fabe4296fb0992fa81954, type: 3}
+  _lifeTime: 10
+  _destroyDuration: 1
+  _spriteRenderer: {fileID: 2716106478678151786}
 --- !u!1 &2716106478678151787
 GameObject:
   m_ObjectHideFlags: 0

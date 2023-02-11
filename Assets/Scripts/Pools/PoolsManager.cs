@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +6,12 @@ public class PoolsManager : MonoBehaviour
 {
     public static PoolsManager Instance { get; private set; }
 
-    [SerializeField] List<PoolBase<IPoolElement>> _pools;
+    private List<PoolBase<PoolElement>> _pools;
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
-        _pools = new List<PoolBase<IPoolElement>>(GetComponents<PoolBase<IPoolElement>>());
+        _pools = new List<PoolBase<PoolElement>>(GetComponents<PoolBase<PoolElement>>());
     }
 
     private void OnDestroy()
@@ -23,11 +19,43 @@ public class PoolsManager : MonoBehaviour
         Instance = null;
     }
 
-    public IPoolElement GetElement<T>() where T : PoolBase<IPoolElement>
+    public T GetPool<T>(Func<T, bool> predicate = null) where T : PoolBase<PoolElement>
     {
-        foreach (var pool in _pools)
-            if (pool is T poolT)
-                return poolT.GetElement();
+        foreach (var p in _pools)
+            if (p is T pool && (predicate?.Invoke(pool) ?? true))
+                return pool;
         return null;
+    }
+
+    public bool TryGetPool<T>(out T poolRes, Func<T, bool> predicate = null) where T : PoolBase<PoolElement>
+    {
+        foreach (var p in _pools)
+            if (p is T pool && (predicate?.Invoke(pool) ?? true))
+            {
+                poolRes = pool;
+                return true;
+            }
+        poolRes = null;
+        return false;
+    }
+
+    public PoolElement GetElement<T>(Func<T, bool> predicate = null) where T : PoolBase<PoolElement>
+    {
+        foreach (var p in _pools)
+            if (p is T pool && (predicate?.Invoke(pool) ?? true))
+                return pool.GetElement();
+        return null;
+    }
+
+    public bool TryGetElement<T>(out PoolElement element, Func<T, bool> predicate = null) where T : PoolBase<PoolElement>
+    {
+        element = default;
+        foreach (var p in _pools)
+            if (p is T pool && (predicate?.Invoke(pool) ?? true))
+            {
+                element = pool.GetElement();
+                return true;
+            }
+        return false;
     }
 }

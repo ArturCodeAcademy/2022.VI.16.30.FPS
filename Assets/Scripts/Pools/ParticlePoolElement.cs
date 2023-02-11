@@ -1,7 +1,24 @@
-using System;
 using UnityEngine;
 
-public class ParticlePoolElement : MonoBehaviour, IPoolElement
+[RequireComponent(typeof(ParticleSystem))]
+public class ParticlePoolElement : PoolElement
 {
-    public Action OnElementUsed { get; set; }
+    private ParticleSystem _particleSystem;
+
+    private void Awake()
+    {
+        _particleSystem = GetComponent<ParticleSystem>();
+    }
+
+    public override void OnGetElement()
+    {
+        gameObject.SetActive(true);
+        _particleSystem.Play();
+    }
+
+    private void OnParticleSystemStopped()
+    {
+        gameObject.SetActive(false);
+        Release();
+    }
 }

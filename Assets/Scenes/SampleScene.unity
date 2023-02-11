@@ -787,6 +787,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4759262079366106236, guid: a7fcd4b6b7a92cc4eaca691ac7ab151b, type: 3}
   m_PrefabInstance: {fileID: 311437947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &323826335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323826336}
+  - component: {fileID: 323826337}
+  m_Layer: 0
+  m_Name: HitDustParticlePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &323826336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323826335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 348809064}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323826337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323826335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b7407987486984f98834aaa44c7ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Dust
+  _prefabs:
+  - {fileID: 435701378996700123, guid: 26f3511f66f8c3545886cf74501ea4ed, type: 3}
 --- !u!1001 &331689678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5848,6 +5895,53 @@ Transform:
   m_Father: {fileID: 1816195227}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -4.01}
+--- !u!1 &348809063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348809064}
+  - component: {fileID: 348809065}
+  m_Layer: 0
+  m_Name: PoolsTemp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348809064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348809063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 323826336}
+  - {fileID: 1231252025}
+  - {fileID: 1175370158}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348809065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348809063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6fa86020719b04e853f7fcccbfa306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &363814843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7867,9 +7961,9 @@ MonoBehaviour:
   _penetratingPower: 0
   _impulsePower: 0
   _magazineVolume: 0
-  _hitEffectPrefab: {fileID: 0}
-  _shootEffectPrefab: {fileID: 0}
-  _holePrefab: {fileID: 0}
+  _hitEffectsPool: {fileID: 323826337}
+  _shootEffectsPool: {fileID: 1231252026}
+  _holesPool: {fileID: 1175370159}
 --- !u!1 &993288143
 GameObject:
   m_ObjectHideFlags: 0
@@ -8388,6 +8482,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2116602288977711756, guid: 4abbdb50213dde041994e2d4dcf791e9, type: 3}
   m_PrefabInstance: {fileID: 1156430407}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1175370157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1175370158}
+  - component: {fileID: 1175370159}
+  m_Layer: 0
+  m_Name: HitHolePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1175370158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175370157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 348809064}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175370159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175370157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0945e111e523f0e4eb616ae89f328aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: HitHoles
+  _prefabs:
+  - {fileID: 1580701945139327737, guid: 357a9d7f69ee8dd468ec70896a12a773, type: 3}
 --- !u!1001 &1202734603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8579,6 +8720,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1231252024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231252025}
+  - component: {fileID: 1231252026}
+  m_Layer: 0
+  m_Name: ShootParticlePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231252025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231252024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 348809064}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231252026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231252024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b7407987486984f98834aaa44c7ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Shoot
+  _prefabs:
+  - {fileID: 1118395546600879001, guid: 6c8428b1387ccf54993a68f84c5f7e9b, type: 3}
 --- !u!1 &1251209288
 GameObject:
   m_ObjectHideFlags: 0
@@ -13935,16 +14123,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _muzzle: {fileID: 852815191}
-  _normalSpread: 20.2
+  _normalSpread: 0
   _aimSpread: 0
   _fireRatePerSecond: 0
   _damage: 0
   _penetratingPower: 20
   _impulsePower: 0
   _magazineVolume: 0
-  _hitEffectPrefab: {fileID: 5569501288523769071, guid: 26f3511f66f8c3545886cf74501ea4ed, type: 3}
-  _shootEffectPrefab: {fileID: 3821381094220751404, guid: 6c8428b1387ccf54993a68f84c5f7e9b, type: 3}
-  _holePrefab: {fileID: 2716106478467039691, guid: 357a9d7f69ee8dd468ec70896a12a773, type: 3}
+  _hitEffectsPool: {fileID: 323826337}
+  _shootEffectsPool: {fileID: 1231252026}
+  _holesPool: {fileID: 1175370159}
 --- !u!1001 &1442882211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14172,9 +14360,9 @@ MonoBehaviour:
   _penetratingPower: 0
   _impulsePower: 0
   _magazineVolume: 0
-  _hitEffectPrefab: {fileID: 0}
-  _shootEffectPrefab: {fileID: 0}
-  _holePrefab: {fileID: 0}
+  _hitEffectsPool: {fileID: 323826337}
+  _shootEffectsPool: {fileID: 1231252026}
+  _holesPool: {fileID: 1175370159}
 --- !u!1001 &1458080043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15768,9 +15956,9 @@ MonoBehaviour:
   _penetratingPower: 0
   _impulsePower: 0
   _magazineVolume: 0
-  _hitEffectPrefab: {fileID: 0}
-  _shootEffectPrefab: {fileID: 0}
-  _holePrefab: {fileID: 0}
+  _hitEffectsPool: {fileID: 323826337}
+  _shootEffectsPool: {fileID: 1231252026}
+  _holesPool: {fileID: 1175370159}
 --- !u!1001 &2114429774
 PrefabInstance:
   m_ObjectHideFlags: 0

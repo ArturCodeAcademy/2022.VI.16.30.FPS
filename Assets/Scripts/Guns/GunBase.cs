@@ -26,13 +26,12 @@ public class GunBase : MonoBehaviour, IGun
     [SerializeField, Min(0)] protected float _impulsePower;
     [Space(10)]
     [SerializeField, Min(1)] protected int _magazineVolume;
-
-    [Header("Temp")] // TODO: Move to pools
-    [SerializeField] protected ParticleSystem _hitEffectPrefab;
-    [SerializeField] protected ParticleSystem _shootEffectPrefab;
-    [SerializeField] protected GameObject _holePrefab;
-
-
+    // New
+    [Header("Effects")] 
+    [SerializeField] protected ParticleEffectsPool _hitEffectsPool;
+    [SerializeField] protected ParticleEffectsPool _shootEffectsPool;
+    [SerializeField] protected SpritesPool _holesPool;
+    // End new
     private Transform _playerCamera;
 
     private void Start()
@@ -42,12 +41,11 @@ public class GunBase : MonoBehaviour, IGun
 
     protected void Shoot(float damage, float bulletSpread, float penetratingPower, float impulse)
     {
-        // Temp Start
-
-        ParticleSystem shootEffect = Instantiate(_shootEffectPrefab, _muzzle.position, _muzzle.rotation);
-        //Destroy(shootEffect, 10);
-
-        // Temp End
+        // New
+        ParticlePoolElement shootEffect = _shootEffectsPool.GetElement();
+        shootEffect.transform.position = _muzzle.position;
+        shootEffect.transform.rotation = _muzzle.rotation;
+        // End new
 
         IEnumerable<RaycastHit> hits = GetHits(bulletSpread);
         if (hits == null || hits.Count() == 0)
@@ -66,16 +64,15 @@ public class GunBase : MonoBehaviour, IGun
             if (hit.transform.TryGetComponent(out Rigidbody rigidbody))
                 rigidbody.AddForce(impulse * leftPenetratingPower / penetratingPower * direction);
 
-            // TODO: Add holes and effects
-            // Temp Start
+            // New
+            ParticlePoolElement hitEffect = _hitEffectsPool.GetElement();
+            hitEffect.transform.position = hit.point;
+            hitEffect.transform.forward = hit.normal;
 
-            GameObject hole = Instantiate(_holePrefab, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up), hit.transform);
-            Destroy(hole, 10);
-
-            ParticleSystem hitEffect = Instantiate(_hitEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
-            //Destroy(hitEffect, 10);
-
-            // Temp End
+            SpritePoolElement hole = _holesPool.GetElement();
+            hole.transform.position = hit.point;
+            hole.transform.forward = hit.normal;
+            // End new
 
             if (hit.transform.TryGetComponent(out BulletBarrier barrier))
             {
@@ -92,7 +89,9 @@ public class GunBase : MonoBehaviour, IGun
     {
         Vector3 direction = GetDirectionWithSpread(bulletSpread, _playerCamera.forward);
         IEnumerable<RaycastHit>  hits = Physics.RaycastAll(_playerCamera.position, direction);
-        return hits?.OrderBy(x => Vector3.Distance(_playerCamera.position, x.point));
+        // New
+        return hits?.Where(x => x.transform != Player.Instance.transform)
+            .OrderBy(x => Vector3.Distance(_playerCamera.position, x.point));
     }
 
     private Vector3 GetDirectionWithSpread(float bulletSpread, Vector3 forward)
