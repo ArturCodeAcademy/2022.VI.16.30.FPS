@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class GunBase : MonoBehaviour, IGun
 {
+    public Action OnShoot;
+
     [field: SerializeField] public Vector3 NormalPosition { get; private set; }
     [field: SerializeField] public Quaternion NormalRotation { get; private set; }
 
@@ -26,8 +29,10 @@ public class GunBase : MonoBehaviour, IGun
     [SerializeField, Min(0)] protected float _impulsePower;
     [Space(10)]
     [SerializeField, Min(1)] protected int _magazineVolume;
-    // New
-    [Header("Effects")] 
+	[field: SerializeField] public int AmmoCountInGun { get; private set; }
+	[field: SerializeField] public AmmoTypes.Type AmmoType { get; private set; }
+	// New
+	[Header("Effects")] 
     [SerializeField] protected ParticleEffectsPool _hitEffectsPool;
     [SerializeField] protected ParticleEffectsPool _shootEffectsPool;
     [SerializeField] protected SpritesPool _holesPool;
@@ -41,11 +46,14 @@ public class GunBase : MonoBehaviour, IGun
 
     protected void Shoot(float damage, float bulletSpread, float penetratingPower, float impulse)
     {
-        // New
+        if (AmmoCountInGun <= 0)
+            return;
+
+        AmmoCountInGun--;
+        OnShoot?.Invoke();
         ParticlePoolElement shootEffect = _shootEffectsPool.GetElement();
         shootEffect.transform.position = _muzzle.position;
         shootEffect.transform.rotation = _muzzle.rotation;
-        // End new
 
         IEnumerable<RaycastHit> hits = GetHits(bulletSpread);
         if (hits == null || hits.Count() == 0)
@@ -64,7 +72,6 @@ public class GunBase : MonoBehaviour, IGun
             if (hit.transform.TryGetComponent(out Rigidbody rigidbody))
                 rigidbody.AddForce(impulse * leftPenetratingPower / penetratingPower * direction);
 
-            // New
             ParticlePoolElement hitEffect = _hitEffectsPool.GetElement();
             hitEffect.transform.position = hit.point;
             hitEffect.transform.forward = hit.normal;
@@ -72,7 +79,6 @@ public class GunBase : MonoBehaviour, IGun
             SpritePoolElement hole = _holesPool.GetElement();
             hole.transform.position = hit.point;
             hole.transform.forward = hit.normal;
-            // End new
 
             if (hit.transform.TryGetComponent(out BulletBarrier barrier))
             {
@@ -96,10 +102,10 @@ public class GunBase : MonoBehaviour, IGun
 
     private Vector3 GetDirectionWithSpread(float bulletSpread, Vector3 forward)
     {
-        Vector3 angle = Random.onUnitSphere;
+        Vector3 angle = UnityEngine.Random.onUnitSphere;
         angle.z = 0;
         angle.Normalize();
-        angle *= Random.Range(0, bulletSpread);
+        angle *= UnityEngine.Random.Range(0, bulletSpread);
         return Quaternion.Euler(angle) * forward;
     }
 }
