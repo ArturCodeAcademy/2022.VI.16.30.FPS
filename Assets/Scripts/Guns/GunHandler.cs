@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -5,33 +6,24 @@ using UnityEngine.UI;
 
 public class GunHandler : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _ammoCountText;
-    [SerializeField] private Image _ammoTypeSpriteRenderer;
+    public event Action<GunBase> OnGunChanged;
+    public GunBase CurrentGun => _currentGun;
 
     private List<GunBase> _guns;
     private GunBase _currentGun;
     private int _currentGunIndex;
-    private AmmoBackpack _ammoBackpack;
 
     private float _aimCurveValue;
     
     private void Awake()
     {
         _guns = new List<GunBase>();
-    }
-
-    private void Start()
-    {
-        _ammoBackpack = Player.Instance.GetComponent<AmmoBackpack>();
-        _guns = new List<GunBase>(GetComponentsInChildren<GunBase>());
-        foreach (var gun in _guns)
-            gun.gameObject.SetActive(false);
-        _currentGunIndex = 0;
-        _currentGun = _guns[_currentGunIndex];
-        _currentGun.gameObject.SetActive(true);
-        _currentGun.OnShoot += UpdateGunInfoPanel;
-        UpdateGunInfoPanel();
-
+		_guns = new List<GunBase>(GetComponentsInChildren<GunBase>());
+		foreach (var gun in _guns)
+			gun.gameObject.SetActive(false);
+		_currentGunIndex = 0;
+		_currentGun = _guns[_currentGunIndex];
+		_currentGun.gameObject.SetActive(true);
 	}
 
     private void Update()
@@ -57,7 +49,6 @@ public class GunHandler : MonoBehaviour
         if (Input.mouseScrollDelta.y == 0)
             return;
 
-		_currentGun.OnShoot -= UpdateGunInfoPanel;
 		_currentGun.gameObject.SetActive(false);
 
         if (Input.mouseScrollDelta.y > 0)
@@ -72,22 +63,7 @@ public class GunHandler : MonoBehaviour
         
         _currentGun = _guns[_currentGunIndex];
         _currentGun.gameObject.SetActive(true);
-		_currentGun.OnShoot += UpdateGunInfoPanel;
 		_aimCurveValue = 0;
-        UpdateGunInfoPanel();
+        OnGunChanged?.Invoke(_currentGun);
 	}
-
-    private void UpdateGunInfoPanel()
-    {
-        if (_currentGun == null)
-        {
-			_ammoCountText.text = string.Empty;
-			_ammoTypeSpriteRenderer.sprite = default;
-		}
-        else
-        {
-            _ammoCountText.text = $"{_currentGun.AmmoCountInGun} / {_ammoBackpack.GetAmmoCount(_currentGun.AmmoType)}";
-            _ammoTypeSpriteRenderer.sprite = AmmoTypes.Instance[_currentGun.AmmoType];
-        }
-    }
 }

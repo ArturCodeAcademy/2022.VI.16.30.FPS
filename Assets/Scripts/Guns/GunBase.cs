@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class GunBase : MonoBehaviour, IGun
 {
-    public Action OnShoot;
+    public event Action OnShoot;
+    public event Action<float> OnStartReloading;
+    public event Action OnDropReloading;
+    public event Action OnReloaded;
 
     [field: SerializeField] public Vector3 NormalPosition { get; private set; }
     [field: SerializeField] public Quaternion NormalRotation { get; private set; }
@@ -31,20 +34,68 @@ public class GunBase : MonoBehaviour, IGun
     [SerializeField, Min(1)] protected int _magazineVolume;
 	[field: SerializeField] public int AmmoCountInGun { get; private set; }
 	[field: SerializeField] public AmmoTypes.Type AmmoType { get; private set; }
-	// New
-	[Header("Effects")] 
+	
+    [Header("Effects")] 
     [SerializeField] protected ParticleEffectsPool _hitEffectsPool;
     [SerializeField] protected ParticleEffectsPool _shootEffectsPool;
     [SerializeField] protected SpritesPool _holesPool;
-    // End new
+
+    [Header("Reloading")]
+    [SerializeField, Min(0.1f)] protected float _reloadingDuration;
+
+    protected float _reloadingTimeElapsed;
+    protected AmmoBackpack _ammoBackpack;
+
     private Transform _playerCamera;
 
-    private void Start()
+	protected virtual void Start()
     {
+        _ammoBackpack = Player.Instance.GetComponent<AmmoBackpack>();
         _playerCamera = Player.Instance.Camera.transform;
-    }
+	}
 
-    protected void Shoot(float damage, float bulletSpread, float penetratingPower, float impulse)
+	protected virtual void Update()
+	{
+		Reload();
+	}
+
+	protected virtual void Reload()
+	{
+        if (_magazineVolume == AmmoCountInGun || _ammoBackpack.GetAmmoCount(AmmoType) == 0)
+            return;
+
+        if (Input.GetKeyUp(KeyCode.R) && _reloadingTimeElapsed != 0)
+        {
+            _reloadingTimeElapsed = 0;
+			OnDropReloading?.Invoke();
+            return;
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+			_reloadingTimeElapsed += Time.deltaTime;
+                OnStartReloading?.Invoke(_reloadingDuration);
+            return;
+		}
+        else if (Input.GetKey(KeyCode.R) && _reloadingTimeElapsed != 0)
+        {
+			_reloadingTimeElapsed += Time.deltaTime;
+			if (_reloadingTimeElapsed >= _reloadingDuration)
+			{
+				FillMagazine();
+				_reloadingTimeElapsed = 0;
+			}
+		}
+	}
+
+    protected virtual void FillMagazine()
+    {
+        int need = _magazineVolume - AmmoCountInGun;
+        int got = _ammoBackpack.GetAmmo(AmmoType, need);
+        AmmoCountInGun += got;
+        OnReloaded?.Invoke();
+	}
+
+	protected void Shoot(float damage, float bulletSpread, float penetratingPower, float impulse)
     {
         if (AmmoCountInGun <= 0)
             return;
