@@ -34,6 +34,9 @@ public class OnZombieEndHealth : MonoBehaviour
 		Destroy(_canvas);
 		Destroy(_scanner);
 		Destroy(gameObject, _bodyDestroyPause);
+		_health?.OnHealthEnd.RemoveListener(OnEndHealth);
+		foreach (Collider collider in GetComponentsInChildren<Collider>())
+			Destroy(collider);
 	}
 
 	private void OnDisable()

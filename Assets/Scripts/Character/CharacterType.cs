@@ -53,7 +53,8 @@ public class CharacterType : MonoBehaviour, IEquatable<CharacterType>
 
     public enum Type
     {
-        Player = 0b1,
-        Turret = 0b10
+        Player = 0b001,
+        Turret = 0b010,
+        Zombie = 0b100
     }
 }
