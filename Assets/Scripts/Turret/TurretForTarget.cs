@@ -77,12 +77,14 @@ public class TurretForTarget : MonoBehaviour
 					target = c;
 				}
 			}
+
 			if (target != null)
 			{
 				_rotateToTarget.enabled = true;
 				_shoot.gameObject.SetActive(true);
 				_shoot.StartShooting(target);
 			}
+
 			_rotateToTarget.Target = target;
 			yield return wait;
 		}

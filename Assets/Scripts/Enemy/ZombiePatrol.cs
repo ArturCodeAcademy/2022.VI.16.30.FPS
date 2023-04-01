@@ -42,6 +42,9 @@ public class ZombiePatrol : MonoBehaviour
 
 	private IEnumerator Patrol()
 	{
+        if (_patrolPointsInWorldSpace.Count == 0)
+            yield break;
+
 		Vector3 target = _patrolPointsInWorldSpace[_pointIndex];
         WaitForSeconds waitSeconds = new WaitForSeconds(_pauseOnStopPoints);
         WaitUntil waitUntil = new WaitUntil(
