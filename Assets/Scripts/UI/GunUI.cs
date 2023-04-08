@@ -15,7 +15,8 @@ public class GunUI : MonoBehaviour
 	private void Start()
 	{
 		_ammoBackpack = Player.Instance.GetComponent<AmmoBackpack>();
-		_gunHandler = Player.Instance.GetComponentInChildren<GunHandler>();
+		_ammoBackpack.OnAmmoCountChanged += UpdateGunInfoPanel;
+        _gunHandler = Player.Instance.GetComponentInChildren<GunHandler>();
 		_gunHandler.OnGunChanged += OnGunSwiched;
 		OnGunSwiched(_gunHandler.CurrentGun);
 	}
@@ -75,4 +76,10 @@ public class GunUI : MonoBehaviour
 			UpdateGunInfoPanel();
 		}
 	}
+
+    private void OnDestroy()
+    {
+        _ammoBackpack.OnAmmoCountChanged -= UpdateGunInfoPanel;
+        _gunHandler.OnGunChanged -= OnGunSwiched;
+    }
 }

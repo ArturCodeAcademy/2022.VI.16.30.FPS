@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
             Destroy(this);
             return;
         }
+
         Instance = this;
     }
 }

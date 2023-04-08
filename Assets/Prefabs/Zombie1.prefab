@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 6605385812653004931}
   - component: {fileID: 6605385812653004930}
   - component: {fileID: -4374773128962669617}
+  - component: {fileID: 8962091838548729838}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Untagged
@@ -240,7 +241,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHealthEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8962091838548729838}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: DropObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHealthValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -386,6 +399,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectType: 4
+--- !u!114 &8962091838548729838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250602335545591783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52704d2a20f5bac49b562fe38a5947c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drops:
+  - Prefab: {fileID: 7102250970304855523, guid: 56b1a6a6cb678c843b91f118f88fc900, type: 3}
+    Probability: 0.068
+  - Prefab: {fileID: 2338644843647818619, guid: 20d259d96023d254bb56553ae102e84f, type: 3}
+    Probability: 0.072
+  - Prefab: {fileID: 6071714068744796334, guid: 02130dcc5846d34458e0934362bb23c5, type: 3}
+    Probability: 0.054
+  - Prefab: {fileID: 444781736822759045, guid: 6a10e0f819fcec942b0f84d90c125a41, type: 3}
+    Probability: 0.057
+  _dropForce: 5
+  _destroyAfterUse: 1
+  _dropCount: 5
+  _dropLocalPos: {x: 0, y: 2.2, z: 0}
 --- !u!1 &310529351358382533
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +836,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5861692221299373288, guid: 631762b9a30b33a42836730a6b37d13f, type: 3}
+  m_Mesh: {fileID: -5861692221299373288, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
 --- !u!114 &7626648778804825241
 MonoBehaviour:
   m_ObjectHideFlags: 0

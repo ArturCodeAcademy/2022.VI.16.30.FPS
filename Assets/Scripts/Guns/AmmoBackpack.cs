@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AmmoBackpack : MonoBehaviour
 {
+	public event Action OnAmmoCountChanged;
+
 	[SerializeField] private List<Pair> _beginAmmoCount;
 
 	private Dictionary<AmmoTypes.Type, int> _ammo;
@@ -21,18 +23,17 @@ public class AmmoBackpack : MonoBehaviour
 
 	public int GetAmmoCount(AmmoTypes.Type type)
 	{
-		if (_ammo.ContainsKey(type))
-			return _ammo[type];
-		return 0;
-	}
+        return _ammo.ContainsKey(type) ? _ammo[type] : 0;
+    }
 
-	public int GetAmmo(AmmoTypes.Type type, int count)
+    public int GetAmmo(AmmoTypes.Type type, int count)
 	{
 		if (!_ammo.TryGetValue(type, out int value))
 			return 0;
 		int min = Math.Min(value, count);
 		_ammo[type] -= min;
-		return min;
+        OnAmmoCountChanged?.Invoke();
+        return min;
 	}
 
 	public void AddAmmo(AmmoTypes.Type type, int value)
@@ -41,6 +42,8 @@ public class AmmoBackpack : MonoBehaviour
 			_ammo[type] += value;
 		else
 			_ammo[type] = value;
+
+		OnAmmoCountChanged?.Invoke();
 	}
 
 	[Serializable]

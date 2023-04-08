@@ -1560,7 +1560,7 @@ MonoBehaviour:
   _impulsePower: 2
   _magazineVolume: 8
   <AmmoCountInGun>k__BackingField: 2
-  <AmmoType>k__BackingField: 0
+  <AmmoType>k__BackingField: 3
   _hitEffectsPool: {fileID: 323826337}
   _shootEffectsPool: {fileID: 1231252026}
   _holesPool: {fileID: 1175370159}
@@ -9023,6 +9023,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1782832176}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: DropObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _characterType: 1
   _destroyAfterUse: 1
 --- !u!65 &871102604
@@ -10033,7 +10045,19 @@ MonoBehaviour:
         m_CallState: 2
   OnObjectSpawned:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1782832176}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: DropObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _prefab: {fileID: 250602335545591783, guid: 2214f9c22d379944688163fbdcedd23d, type: 3}
   _spawnPause: 2
   _spawnCount: 30
@@ -17065,6 +17089,65 @@ Transform:
   m_Father: {fileID: 840570775}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1782832174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1782832175}
+  - component: {fileID: 1782832176}
+  m_Layer: 0
+  m_Name: Dropper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1782832175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782832174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.34, y: 8.61, z: 17.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4585538907537479}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1782832176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782832174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52704d2a20f5bac49b562fe38a5947c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drops:
+  - Prefab: {fileID: 7102250970304855523, guid: 56b1a6a6cb678c843b91f118f88fc900, type: 3}
+    Probability: 0.068
+  - Prefab: {fileID: 2338644843647818619, guid: 20d259d96023d254bb56553ae102e84f, type: 3}
+    Probability: 0.072
+  - Prefab: {fileID: 6071714068744796334, guid: 02130dcc5846d34458e0934362bb23c5, type: 3}
+    Probability: 0.054
+  - Prefab: {fileID: 444781736822759045, guid: 6a10e0f819fcec942b0f84d90c125a41, type: 3}
+    Probability: 0.057
+  - Prefab: {fileID: 0}
+    Probability: 0.391
+  _dropForce: 0
+  _destroyAfterUse: 1
+  _dropCount: 31
+  _dropLocalPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1804385766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 726e329e1719c8f42949342e6a5b42e3, type: 3}
@@ -19418,6 +19501,7 @@ Transform:
   - {fileID: 4274876493277749}
   - {fileID: 1182295860}
   - {fileID: 871102602}
+  - {fileID: 1782832175}
   m_Father: {fileID: 390642878}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -1.776, y: 180, z: 0}
