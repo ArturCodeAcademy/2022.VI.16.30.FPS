@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GunBase : MonoBehaviour, IGun
+public class GunBase : Item, IGun
 {
     public event Action OnShoot;
     public event Action<float> OnStartReloading;

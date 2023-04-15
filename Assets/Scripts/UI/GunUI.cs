@@ -55,7 +55,7 @@ public class GunUI : MonoBehaviour
 		}
 	}
 
-	private void OnGunSwiched(GunBase gun)
+	private void OnGunSwiched(Item gun)
 	{
 		if (_currentGun != null)
 		{ 
@@ -65,7 +65,7 @@ public class GunUI : MonoBehaviour
 			_currentGun.OnReloaded -= HideSlider;
 			_currentGun.OnReloaded -= UpdateGunInfoPanel;
 		}
-		_currentGun = gun;
+		_currentGun = gun as GunBase;
 		if (_currentGun != null)
 		{
 			_currentGun.OnShoot += UpdateGunInfoPanel;

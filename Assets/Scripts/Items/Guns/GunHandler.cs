@@ -1,24 +1,22 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GunHandler : MonoBehaviour
 {
-    public event Action<GunBase> OnGunChanged;
-    public GunBase CurrentGun => _currentGun;
+    public event Action<Item> OnGunChanged;
+    public Item CurrentGun => _currentGun;
 
-    private List<GunBase> _guns;
-    private GunBase _currentGun;
+    private List<Item> _guns;
+    private Item _currentGun;
     private int _currentGunIndex;
 
     private float _aimCurveValue;
     
     private void Awake()
     {
-        _guns = new List<GunBase>();
-		_guns = new List<GunBase>(GetComponentsInChildren<GunBase>());
+        _guns = new List<Item>();
+		_guns = new List<Item>(GetComponentsInChildren<Item>());
 		foreach (var gun in _guns)
 			gun.gameObject.SetActive(false);
 		_currentGunIndex = 0;
@@ -34,14 +32,17 @@ public class GunHandler : MonoBehaviour
 
     private void Aim()
     {
+        if (_currentGun is not GunBase gun)
+            return;
+
         if (Input.GetMouseButton(1))
             _aimCurveValue += Time.deltaTime;
         else
             _aimCurveValue -= Time.deltaTime;
-        _aimCurveValue = Mathf.Clamp(_aimCurveValue, 0.0f, _currentGun.AimingTransitionDuration);
+        _aimCurveValue = Mathf.Clamp(_aimCurveValue, 0.0f, gun.AimingTransitionDuration);
 
-        _currentGun.transform.localPosition = Vector3.Lerp(_currentGun.NormalPosition, _currentGun.AimingPosition, _aimCurveValue / _currentGun.AimingTransitionDuration);
-        _currentGun.transform.localRotation = Quaternion.Lerp(_currentGun.NormalRotation, _currentGun.AimingRotation, _aimCurveValue / _currentGun.AimingTransitionDuration);
+        gun.transform.localPosition = Vector3.Lerp(gun.NormalPosition, gun.AimingPosition, _aimCurveValue / gun.AimingTransitionDuration);
+        gun.transform.localRotation = Quaternion.Lerp(gun.NormalRotation, gun.AimingRotation, _aimCurveValue / gun.AimingTransitionDuration);
     }
 
     private void SwitchGuns()
