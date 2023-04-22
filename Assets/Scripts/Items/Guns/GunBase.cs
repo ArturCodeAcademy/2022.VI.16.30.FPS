@@ -10,9 +10,6 @@ public class GunBase : Item, IGun
     public event Action OnDropReloading;
     public event Action OnReloaded;
 
-    [field: SerializeField] public Vector3 NormalPosition { get; protected set; }
-    [field: SerializeField] public Quaternion NormalRotation { get; protected set; }
-
     [field: SerializeField] public Vector3 AimingPosition { get; protected set; }
     [field: SerializeField] public Quaternion AimingRotation { get; protected set; }
 
