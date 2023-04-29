@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Info>k__BackingField: Med kit
-  <NormalPosition>k__BackingField: {x: 0.099, y: -0.078, z: 0.195}
+  <NormalPosition>k__BackingField: {x: 0.19, y: -0.16, z: 0.41}
   <NormalRotation>k__BackingField: {x: -0.040820524, y: -0.19190262, z: 0.20345081, w: 0.95922625}
   _maxHealth: 10
   _beginHealth: 5

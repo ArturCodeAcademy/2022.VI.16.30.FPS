@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -18,8 +19,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        Physics.Raycast(_playerCamera.position, _playerCamera.forward,
-            out RaycastHit hit, RAY_LENGTH);
+        RaycastHit hit = Physics.RaycastAll(_playerCamera.position, _playerCamera.forward, RAY_LENGTH)
+            .OrderBy(x => Vector3.Distance(_playerCamera.position, x.point))
+            .Where(x => x.transform != transform).FirstOrDefault();
         if (_hoveredInteractable != hit.transform)
         {
             _hoveredInteractable = hit.transform;

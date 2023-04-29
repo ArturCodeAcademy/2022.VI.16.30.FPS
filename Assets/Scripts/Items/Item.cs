@@ -22,7 +22,7 @@ public class Item : MonoBehaviour, IInteractable
             Interact();
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         _collider.enabled = false;
         enabled = true;
@@ -30,7 +30,7 @@ public class Item : MonoBehaviour, IInteractable
         Player.Instance.GunHandler.AddItem(this);
     }
 
-    public void Drop()
+    public virtual void Drop()
     {
         enabled = false;
         transform.SetParent(null);
