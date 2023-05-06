@@ -8,7 +8,7 @@ public class GunUI : MonoBehaviour
 	[SerializeField] private Image _ammoTypeSpriteRenderer;
 	[SerializeField] private Slider _reloadingSlider;
 
-	private GunBase _currentGun;
+	private IGun _currentGun;
 	private GunHandler _gunHandler;
 	private AmmoBackpack _ammoBackpack;
 
@@ -65,7 +65,7 @@ public class GunUI : MonoBehaviour
 			_currentGun.OnReloaded -= HideSlider;
 			_currentGun.OnReloaded -= UpdateGunInfoPanel;
 		}
-		_currentGun = gun as GunBase;
+		_currentGun = gun as IGun;
 		if (_currentGun != null)
 		{
 			_currentGun.OnShoot += UpdateGunInfoPanel;

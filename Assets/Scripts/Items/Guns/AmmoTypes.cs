@@ -34,7 +34,9 @@ public class AmmoTypes : MonoBehaviour
 		LR_22,
 		Shotshells,
 		FN_5_7,
-		BMG_50
+		BMG_50,
+
+		Smoke
 	}
 
 	[Serializable]
