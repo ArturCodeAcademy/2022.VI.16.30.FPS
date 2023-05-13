@@ -363,6 +363,426 @@ MonoBehaviour:
     Count: 50
   - Type: 4
     Count: 50
+  - Type: 6
+    Count: 50
+  - Type: 7
+    Count: 50
+  - Type: 8
+    Count: 50
+  - Type: 9
+    Count: 50
+  - Type: 10
+    Count: 50
+--- !u!1 &2446550889828966631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663252858238696958}
+  - component: {fileID: 6769420324949405802}
+  - component: {fileID: 4662138288445378679}
+  - component: {fileID: 6040973182516583274}
+  m_Layer: 0
+  m_Name: GrenadeThrowerYellow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663252858238696958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446550889828966631}
+  m_LocalRotation: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  m_LocalPosition: {x: 0.071, y: -0.15, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6436887339154030000}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 23.6, y: -88.018, z: -1.096}
+--- !u!114 &6769420324949405802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446550889828966631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179735875d7ffb4b9e12353e54fc4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField: Smoke white
+  <NormalPosition>k__BackingField: {x: 0.071, y: -0.15, z: 0.383}
+  <NormalRotation>k__BackingField: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  <AmmoType>k__BackingField: 10
+  _throwImpulse: 20
+  _grenadePrefab: {fileID: 1657336050888207703, guid: 837a12781a12325439a04b0e1033a52f, type: 3}
+  _reloadingDuration: 1
+--- !u!65 &4662138288445378679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446550889828966631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &6040973182516583274
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446550889828966631}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &2683318762702370288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6972840019784987738}
+  - component: {fileID: 3105324529984837843}
+  - component: {fileID: 6198570977750895176}
+  - component: {fileID: 1311393004942444904}
+  m_Layer: 0
+  m_Name: GrenadeThrowerWhite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6972840019784987738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683318762702370288}
+  m_LocalRotation: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  m_LocalPosition: {x: 0.071, y: -0.15, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6436887339154030000}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 23.6, y: -88.018, z: -1.096}
+--- !u!114 &3105324529984837843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683318762702370288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179735875d7ffb4b9e12353e54fc4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField: Smoke white
+  <NormalPosition>k__BackingField: {x: 0.071, y: -0.15, z: 0.383}
+  <NormalRotation>k__BackingField: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  <AmmoType>k__BackingField: 6
+  _throwImpulse: 20
+  _grenadePrefab: {fileID: 1657336050888207703, guid: 4c45478a68cc6d744be8ca55a38a865c, type: 3}
+  _reloadingDuration: 1
+--- !u!65 &6198570977750895176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683318762702370288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &1311393004942444904
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683318762702370288}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &3072058531075001723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2203819467995701227}
+  - component: {fileID: 128161058939080795}
+  - component: {fileID: 7668590008531042650}
+  - component: {fileID: 2407212471555749443}
+  m_Layer: 0
+  m_Name: GrenadeThrowerViolet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2203819467995701227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072058531075001723}
+  m_LocalRotation: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  m_LocalPosition: {x: 0.071, y: -0.15, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6436887339154030000}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 23.6, y: -88.018, z: -1.096}
+--- !u!114 &128161058939080795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072058531075001723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179735875d7ffb4b9e12353e54fc4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField: Smoke white
+  <NormalPosition>k__BackingField: {x: 0.071, y: -0.15, z: 0.383}
+  <NormalRotation>k__BackingField: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  <AmmoType>k__BackingField: 9
+  _throwImpulse: 20
+  _grenadePrefab: {fileID: 1657336050888207703, guid: 003749f8774a8864390d73b33eeab5ad, type: 3}
+  _reloadingDuration: 1
+--- !u!65 &7668590008531042650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072058531075001723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &2407212471555749443
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072058531075001723}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &4077229805732912874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268057851550993060}
+  - component: {fileID: 945977884344023455}
+  - component: {fileID: 8098522571374704988}
+  - component: {fileID: 8908393542061459920}
+  m_Layer: 0
+  m_Name: GrenadeThrowerRed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268057851550993060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077229805732912874}
+  m_LocalRotation: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  m_LocalPosition: {x: 0.071, y: -0.15, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6436887339154030000}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 23.6, y: -88.018, z: -1.096}
+--- !u!114 &945977884344023455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077229805732912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179735875d7ffb4b9e12353e54fc4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField: Smoke white
+  <NormalPosition>k__BackingField: {x: 0.071, y: -0.15, z: 0.383}
+  <NormalRotation>k__BackingField: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  <AmmoType>k__BackingField: 7
+  _throwImpulse: 20
+  _grenadePrefab: {fileID: 1657336050888207703, guid: d7fabc6c5d562354899eefeb27b3d3e5, type: 3}
+  _reloadingDuration: 1
+--- !u!65 &8098522571374704988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077229805732912874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &8908393542061459920
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077229805732912874}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &4333010380628631674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119631671529066546}
+  - component: {fileID: 6320198879723475225}
+  - component: {fileID: 7032354779776451753}
+  - component: {fileID: 4507823800645036685}
+  m_Layer: 0
+  m_Name: GrenadeThrowerGreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119631671529066546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333010380628631674}
+  m_LocalRotation: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  m_LocalPosition: {x: 0.071, y: -0.15, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6436887339154030000}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 23.6, y: -88.018, z: -1.096}
+--- !u!114 &6320198879723475225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333010380628631674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179735875d7ffb4b9e12353e54fc4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField: Smoke white
+  <NormalPosition>k__BackingField: {x: 0.071, y: -0.15, z: 0.383}
+  <NormalRotation>k__BackingField: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  <AmmoType>k__BackingField: 8
+  _throwImpulse: 20
+  _grenadePrefab: {fileID: 1657336050888207703, guid: 2b91890c9ec70e945ae92a31566407e0, type: 3}
+  _reloadingDuration: 1
+--- !u!65 &7032354779776451753
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333010380628631674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &4507823800645036685
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333010380628631674}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6434878635501143088
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +812,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6972840019784987738}
+  - {fileID: 268057851550993060}
+  - {fileID: 2119631671529066546}
+  - {fileID: 2203819467995701227}
+  - {fileID: 663252858238696958}
   m_Father: {fileID: 1921303956048844463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

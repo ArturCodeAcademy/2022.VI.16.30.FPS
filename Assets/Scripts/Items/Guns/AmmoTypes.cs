@@ -36,7 +36,11 @@ public class AmmoTypes : MonoBehaviour
 		FN_5_7,
 		BMG_50,
 
-		Smoke
+		SmokeWhite,
+		SmokeRed,
+		SmokeGreen,
+		SmokeViolet,
+		SmokeYellow
 	}
 
 	[Serializable]

@@ -35,7 +35,9 @@ public class GunHandler : MonoBehaviour
 
     private void DropItem()
     {
-        if (!Input.GetKeyDown(KeyCode.G) || _currentGun == null)
+        if (!Input.GetKeyDown(KeyCode.G)
+         || _currentGun == null
+         || _currentGun is INotThrowable)
             return;
 
         _currentGun.Drop();
@@ -77,20 +79,27 @@ public class GunHandler : MonoBehaviour
         if (Input.mouseScrollDelta.y == 0 || _guns.Count == 0)
             return;
 
-		_currentGun.gameObject.SetActive(false);
+        int previousGunIndex = _currentGunIndex;
 
-        if (Input.mouseScrollDelta.y > 0)
-            _currentGunIndex++;
-        else if (Input.mouseScrollDelta.y < 0)
-            _currentGunIndex--;
+        _currentGun?.gameObject.SetActive(false);
 
-        if (_currentGunIndex < 0)
-            _currentGunIndex = _guns.Count - 1;
-        if (_currentGunIndex >= _guns.Count)
-            _currentGunIndex = 0;
-        
-        _currentGun = _guns[_currentGunIndex];
-        _currentGun.gameObject.SetActive(true);
+        do
+        {
+            if (Input.mouseScrollDelta.y > 0)
+                _currentGunIndex++;
+            else if (Input.mouseScrollDelta.y < 0)
+                _currentGunIndex--;
+
+            if (_currentGunIndex < 0)
+                _currentGunIndex = _guns.Count - 1;
+            if (_currentGunIndex >= _guns.Count)
+                _currentGunIndex = 0;
+
+            _currentGun = _guns[_currentGunIndex];
+        }
+        while (_currentGun is ISwitchSkipable ss && ss.Skip() && previousGunIndex != _currentGunIndex);
+
+        _currentGun?.gameObject.SetActive(true);
 		_aimCurveValue = 0;
         OnGunChanged?.Invoke(_currentGun);
 	}

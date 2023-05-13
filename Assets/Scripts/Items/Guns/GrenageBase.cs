@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class GrenageBase : Item, IGun
+public class GrenageBase : Item, IGun, INotThrowable, ISwitchSkipable
 {
     public event Action OnShoot;
     public event Action<float> OnStartReloading;
@@ -46,6 +46,7 @@ public class GrenageBase : Item, IGun
             _grenadeObject.transform.SetParent(null);
             _grenadeObject.GetComponentInChildren<Collider>().enabled = true;
             _grenadeObject.GetComponentInChildren<Grenade>().enabled = true;
+            _grenadeObject.GetComponentInChildren<TrailRenderer>().enabled = true;
             Rigidbody rigidbody = _grenadeObject.AddComponent<Rigidbody>();
             rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             rigidbody.AddForce(Camera.main.transform.forward * _throwImpulse, ForceMode.Impulse);
@@ -89,5 +90,11 @@ public class GrenageBase : Item, IGun
                 OnReloaded?.Invoke();
             }
         }
+    }
+
+    public bool Skip()
+    {
+        _ammoBackpack ??= Player.Instance.GetComponent<AmmoBackpack>();
+        return _ammoBackpack.GetAmmoCount(AmmoType) <= 0 && AmmoCountInGun <= 0;
     }
 }
