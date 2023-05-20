@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abce17671ba5c645b2206ea6d28ac51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
+  Camera: {fileID: 1921303956048844461}
 --- !u!114 &1921303956451890820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,16 +362,6 @@ MonoBehaviour:
   - Type: 4
     Count: 50
   - Type: 4
-    Count: 50
-  - Type: 6
-    Count: 50
-  - Type: 7
-    Count: 50
-  - Type: 8
-    Count: 50
-  - Type: 9
-    Count: 50
-  - Type: 10
     Count: 50
 --- !u!1 &2446550889828966631
 GameObject:

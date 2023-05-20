@@ -274,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4166628232227610895}
   - component: {fileID: 9189817022731835006}
+  - component: {fileID: 8769422241824095175}
   m_Layer: 0
   m_Name: SM_Bench
   m_TagString: Untagged
@@ -333,6 +334,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 3671788019165865017}
   m_Enabled: 1
+--- !u!65 &8769422241824095175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645952939852970933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4523225, y: 0.4457516, z: 0.4510742}
+  m_Center: {x: 0.029287696, y: 0.22712418, z: -0.074462906}
 --- !u!1 &7337573699396717980
 GameObject:
   m_ObjectHideFlags: 0
