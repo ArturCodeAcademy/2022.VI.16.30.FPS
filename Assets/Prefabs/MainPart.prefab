@@ -1876,6 +1876,8 @@ MonoBehaviour:
     Sprite: {fileID: -1382237888, guid: a97955a9c15012e439a8ba6521444f7c, type: 3}
   - Type: 10
     Sprite: {fileID: 1203394066, guid: a97955a9c15012e439a8ba6521444f7c, type: 3}
+  - Type: 11
+    Sprite: {fileID: 21300000, guid: 267d95b07517b4d4881a269fbcf1c15d, type: 3}
 --- !u!1 &3130929455579270922
 GameObject:
   m_ObjectHideFlags: 0

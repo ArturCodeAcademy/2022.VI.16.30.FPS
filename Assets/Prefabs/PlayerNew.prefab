@@ -808,6 +808,7 @@ Transform:
   - {fileID: 2119631671529066546}
   - {fileID: 2203819467995701227}
   - {fileID: 663252858238696958}
+  - {fileID: 1697016538307594747}
   m_Father: {fileID: 1921303956048844463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -838,3 +839,85 @@ MonoBehaviour:
   _ammoCountText: {fileID: 0}
   _ammoTypeSpriteRenderer: {fileID: 0}
   _reloadingSlider: {fileID: 0}
+--- !u!1 &7415346584588519346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697016538307594747}
+  - component: {fileID: 4994567329102112777}
+  - component: {fileID: 9082030756982948529}
+  - component: {fileID: 1339566795287748060}
+  m_Layer: 0
+  m_Name: GrenadeThrowerM26
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697016538307594747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415346584588519346}
+  m_LocalRotation: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  m_LocalPosition: {x: 0.071, y: -0.15, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6436887339154030000}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 23.6, y: -88.018, z: -1.096}
+--- !u!114 &4994567329102112777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415346584588519346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179735875d7ffb4b9e12353e54fc4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField: Grenade M26
+  <NormalPosition>k__BackingField: {x: 0.071, y: -0.15, z: 0.383}
+  <NormalRotation>k__BackingField: {x: 0.15357828, y: -0.6786537, z: 0.13533741, w: 0.70535576}
+  <AmmoType>k__BackingField: 11
+  _throwImpulse: 20
+  _grenadePrefab: {fileID: 5896038280422257906, guid: 4bcacc2f14fd6874baf20d3ab123722d, type: 3}
+  _reloadingDuration: 1
+--- !u!65 &9082030756982948529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415346584588519346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &1339566795287748060
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415346584588519346}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

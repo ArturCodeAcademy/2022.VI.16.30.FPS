@@ -40,7 +40,9 @@ public class AmmoTypes : MonoBehaviour
 		SmokeRed,
 		SmokeGreen,
 		SmokeViolet,
-		SmokeYellow
+		SmokeYellow,
+
+		Grenade_M26
 	}
 
 	[Serializable]
