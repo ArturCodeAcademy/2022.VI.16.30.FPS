@@ -1,5 +1,6 @@
 using System;
 
+#if UNITY_EDITOR
 namespace UnityEditor.PostProcessing
 {
     public class PostProcessingModelEditorAttribute : Attribute
@@ -14,3 +15,4 @@ namespace UnityEditor.PostProcessing
         }
     }
 }
+#endif
